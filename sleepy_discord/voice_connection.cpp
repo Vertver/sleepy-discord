@@ -216,12 +216,16 @@ namespace SleepyDiscord {
 	}
 
 	void VoiceConnection::heartbeat() {
+		try
+		{
+			if (this == nullptr) return;
 		//don't continue if not connected
 		if (!(state & CONNECTED))
 			return;
 
 		//timestamp int
 		const uint64_t bitMask52 = 0x1FFFFFFFFFFFFF;
+		if ((size_t)origin == 0xFFFFFFFFFFFFFFFF || (size_t)origin == 0xDDDDDDDDDDDDDDDD) return;
 		const uint64_t currentTime = static_cast<uint16_t>(origin->getEpochTimeMillisecond());
 		const std::string nonce = std::to_string(bitMask52 & currentTime);
 		/*The number 17 comes from the number of letters in this string + 1:
@@ -242,6 +246,11 @@ namespace SleepyDiscord {
 		heart = origin->schedule([this]() {
 			this->heartbeat();
 		}, heartbeatInterval);
+		}
+		catch (...)
+		{
+
+		}
 	}
 
 	inline void VoiceConnection::scheduleNextTime(AudioTimer& timer, TimedTask code, const time_t interval) {
