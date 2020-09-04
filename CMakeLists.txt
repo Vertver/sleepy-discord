@@ -3,7 +3,7 @@ project(sleepy-discord)
 
 option(BUILD_EXAMPLES                "Build examples of Sleepy Discord and all dependencies"              OFF)
 option(SLEEPY_DISCORD_BUILD_EXAMPLES "Build examples of Sleepy Discord"                                   OFF)
-option(ONLY_SLEEPY_DISCORD           "Sleepy Discord but none of the dependencies, except build in onces" ON)
+option(ONLY_SLEEPY_DISCORD           "Sleepy Discord but none of the dependencies, except build in onces" OFF)
 option(ENABLE_VOICE                  "Enable voice support"                                               ON)
 if (NOT ONLY_SLEEPY_DISCORD)
 	option(AUTO_DOWNLOAD_LIBRARY         "Automatically download sleepy discord standard config dependencies" ON )
