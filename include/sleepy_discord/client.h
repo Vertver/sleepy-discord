@@ -611,6 +611,7 @@ namespace SleepyDiscord {
 			INVALID_SESSION       = 9,  //used to notify client they have an invalid session id
 			HELLO                 = 10, //sent immediately after connecting, contains heartbeat and server debug information
 			HEARTBEAT_ACK         = 11, //sent immediately following a client heartbeat that was received
+			STREAM_STATE_UPDATE   = 12	//I'm not sure but this upcode sends while someone activate stream or video
 		};
 
 		std::unique_ptr<std::string> token;		//stored in a unique_ptr so that you can't see it in the debugger
